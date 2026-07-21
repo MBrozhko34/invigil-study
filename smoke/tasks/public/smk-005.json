@@ -1,0 +1,11 @@
+{
+  "id": "smk-005",
+  "prompt": "def count_vowel_words(words: list[str]) -> int:\n    \"\"\"Count words that START with a vowel (a,e,i,o,u), case-insensitive.\n    count_vowel_words(['Apple','banana','Egg']) -> 2\"\"\"",
+  "entry_point": "count_vowel_words",
+  "tests": [
+    "assert count_vowel_words(['Apple','banana','Egg']) == 2",
+    "assert count_vowel_words([]) == 0",
+    "assert count_vowel_words(['sky']) == 0",
+    "assert count_vowel_words(['under','Over']) == 2"
+  ]
+}

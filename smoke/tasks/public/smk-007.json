@@ -1,0 +1,11 @@
+{
+  "id": "smk-007",
+  "prompt": "def digits_sum_until_single(n: int) -> int:\n    \"\"\"Repeatedly sum the digits of non-negative n until a single digit remains.\n    digits_sum_until_single(9875) -> 2\"\"\"",
+  "entry_point": "digits_sum_until_single",
+  "tests": [
+    "assert digits_sum_until_single(9875) == 2",
+    "assert digits_sum_until_single(0) == 0",
+    "assert digits_sum_until_single(7) == 7",
+    "assert digits_sum_until_single(199) == 1"
+  ]
+}

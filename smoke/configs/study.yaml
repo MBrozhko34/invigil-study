@@ -1,0 +1,10 @@
+# SMOKE TEST configuration -- separate root so the real Study 001 configs stay
+# pristine. Claims from this data are CROSS-PROVIDER divergence only.
+studyId: invigil-smoke-001
+model:
+  name: deepseek/deepseek-v4-flash
+  hfRevision: SMOKE-NOT-PINNED     # self-hosted reference is a Stage-B task, not smoke
+seed: 20260721
+scheduleWindowsUtc:
+  - { startHour: 0, endHour: 24 }  # smoke runs anytime
+budgetGbpCap: 20

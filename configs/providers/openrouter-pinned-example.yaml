@@ -1,0 +1,27 @@
+# OpenRouter used ONLY pinned to a single named provider variant -- never the
+# auto-router (METHODOLOGY section 3). Two pinning mechanisms, use BOTH:
+#   1. the :provider suffix in modelSlug
+#   2. extraBody.provider.order + allow_fallbacks: false (authoritative)
+# Verify the pin on every response: model field + provider metadata must match.
+id: openrouter-exampleprov
+displayName: ExampleProv via OpenRouter (pinned)
+baseUrl: https://openrouter.ai/api/v1
+apiKeyEnv: OPENROUTER_KEY
+modelSlug: qwen/qwen-2.5-coder-32b-instruct:exampleprov
+advertised:
+  precision: fp8
+  contextLength: 32768
+  pricePerMtokIn: "0.07"
+  pricePerMtokOut: "0.16"
+capabilities:
+  logprobs: false
+  seed: true
+  topK: true
+  completionsEndpoint: false
+rateLimit:
+  requestsPerMinute: 20
+timeoutMs: 120000
+extraBody:
+  provider:
+    order: ["ExampleProv"]
+    allow_fallbacks: false

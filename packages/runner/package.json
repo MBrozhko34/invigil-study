@@ -1,0 +1,17 @@
+{
+  "name": "@invigil/runner",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": { "invigil": "dist/cli.js" },
+  "scripts": { "build": "tsc -b", "test": "tsx --test test/*.test.ts" },
+  "dependencies": {
+    "@invigil/core": "workspace:*",
+    "@invigil/providers": "workspace:*",
+    "@invigil/sandbox": "workspace:*",
+    "commander": "^12.1.0",
+    "yaml": "^2.5.0",
+    "zod": "^3.23.8"
+  }
+}

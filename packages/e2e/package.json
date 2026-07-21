@@ -1,0 +1,13 @@
+{
+  "name": "@invigil/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "echo 'e2e: nothing to build'", "test": "tsx --test test/*.test.ts" },
+  "dependencies": {
+    "@invigil/core": "workspace:*",
+    "@invigil/providers": "workspace:*",
+    "@invigil/runner": "workspace:*",
+    "@invigil/verifier-cli": "workspace:*"
+  }
+}

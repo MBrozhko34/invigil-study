@@ -1,0 +1,11 @@
+{
+  "id": "smk-004",
+  "prompt": "def second_largest(xs: list[int]) -> int:\n    \"\"\"Return the second largest DISTINCT value. Assume at least two distinct values exist.\n    second_largest([4, 1, 4, 3]) -> 3\"\"\"",
+  "entry_point": "second_largest",
+  "tests": [
+    "assert second_largest([4,1,4,3]) == 3",
+    "assert second_largest([1,2]) == 1",
+    "assert second_largest([-5,-2,-9]) == -5",
+    "assert second_largest([10,10,9,8]) == 9"
+  ]
+}

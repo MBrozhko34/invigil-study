@@ -1,0 +1,11 @@
+{
+  "id": "smk-013",
+  "prompt": "def caesar(s: str, k: int) -> str:\n    \"\"\"Shift letters by k (wrapping), preserve case, leave other chars unchanged.\n    caesar('Ab-z', 1) -> 'Bc-a'\"\"\"",
+  "entry_point": "caesar",
+  "tests": [
+    "assert caesar('Ab-z',1) == 'Bc-a'",
+    "assert caesar('',5) == ''",
+    "assert caesar('Zz',1) == 'Aa'",
+    "assert caesar('abc',0) == 'abc'"
+  ]
+}

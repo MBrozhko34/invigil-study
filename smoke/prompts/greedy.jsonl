@@ -1,0 +1,20 @@
+{"id": "g-000", "prompt": "Continue this Python function body. Output code only.\n\ndef gcd(a: int, b: int) -> int:\n    while b:"}
+{"id": "g-001", "prompt": "Continue this Python function body. Output code only.\n\ndef fib(n: int) -> int:\n    a, b = 0, 1\n    for _ in range(n):"}
+{"id": "g-002", "prompt": "Continue this Python function body. Output code only.\n\ndef unique_sorted(xs):\n    seen = set()\n    out = []\n    for x in xs:"}
+{"id": "g-003", "prompt": "Continue this Python function body. Output code only.\n\ndef to_snake(s: str) -> str:\n    parts = []\n    for i, ch in enumerate(s):"}
+{"id": "g-004", "prompt": "Continue this Python function body. Output code only.\n\ndef histogram(words):\n    h = {}\n    for w in words:"}
+{"id": "g-005", "prompt": "Continue this Python function body. Output code only.\n\ndef binary_search(xs, target):\n    lo, hi = 0, len(xs) - 1\n    while lo <= hi:"}
+{"id": "g-006", "prompt": "Continue this Python function body. Output code only.\n\ndef strip_comments(line: str) -> str:\n    in_str = False\n    for i, ch in enumerate(line):"}
+{"id": "g-007", "prompt": "Continue this Python function body. Output code only.\n\ndef chunk(xs, size):\n    out = []\n    for i in range(0, len(xs), size):"}
+{"id": "g-008", "prompt": "Continue this Python function body. Output code only.\n\ndef most_common(xs):\n    counts = {}\n    best = None\n    for x in xs:"}
+{"id": "g-009", "prompt": "Continue this Python function body. Output code only.\n\ndef valid_ipv4(s: str) -> bool:\n    parts = s.split('.')\n    if len(parts) != 4:"}
+{"id": "g-010", "prompt": "List the first eight prime numbers separated by commas, nothing else."}
+{"id": "g-011", "prompt": "In exactly two sentences, explain why binary search requires sorted input."}
+{"id": "g-012", "prompt": "Give the Big-O time complexity of quicksort in the average case and worst case, one line."}
+{"id": "g-013", "prompt": "Name the four HTTP methods most used in REST APIs, comma separated."}
+{"id": "g-014", "prompt": "In one sentence, what does idempotent mean for an HTTP endpoint?"}
+{"id": "g-015", "prompt": "Convert 255 to binary and to hexadecimal, format: binary=..., hex=..."}
+{"id": "g-016", "prompt": "In exactly three bullet points, why are floating point comparisons with == dangerous?"}
+{"id": "g-017", "prompt": "State De Morgan's laws for boolean logic in one line each."}
+{"id": "g-018", "prompt": "What does the acronym ACID stand for in databases? One line."}
+{"id": "g-019", "prompt": "In two sentences, what is a race condition?"}

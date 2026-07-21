@@ -1,0 +1,19 @@
+{
+  "name": "invigil-study",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -b packages/core packages/providers packages/runner packages/sandbox packages/verifier-cli site",
+    "test": "pnpm -r --workspace-concurrency=1 run test",
+    "test:py": "cd analysis && python3 -m pytest -q",
+    "report": "bash scripts/report.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}

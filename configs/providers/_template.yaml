@@ -1,0 +1,19 @@
+# Copy per provider. NEVER put keys here -- apiKeyEnv names an env var.
+id: provider-slug
+displayName: Provider Name
+baseUrl: https://api.provider.example/v1
+apiKeyEnv: PROVIDER_SLUG_KEY
+modelSlug: Qwen/Qwen2.5-Coder-32B-Instruct
+advertised:
+  precision: bf16            # as PUBLISHED by the provider at study time -- archive the page
+  contextLength: 131072
+  pricePerMtokIn: "0.20"     # decimal strings (canonical JSON forbids floats)
+  pricePerMtokOut: "0.60"
+capabilities:
+  logprobs: false
+  seed: false
+  topK: false
+  completionsEndpoint: false
+rateLimit:
+  requestsPerMinute: 30
+timeoutMs: 120000

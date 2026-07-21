@@ -1,0 +1,17 @@
+{
+  "name": "@invigil/anchor",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy:baseSepolia": "hardhat run scripts/deploy.ts --network baseSepolia",
+    "deploy:base": "hardhat run scripts/deploy.ts --network base",
+    "anchor": "hardhat run scripts/anchor.ts --network base",
+    "test": "echo 'anchor: compile+test require hardhat toolchain; run pnpm compile locally' && exit 0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0"
+  },
+  "dependencies": { "@invigil/core": "workspace:*" }
+}

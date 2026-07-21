@@ -1,0 +1,12 @@
+[Unit]
+Description=Invigil daily: merkleize evidence, anchor roots, back up
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=invigil
+WorkingDirectory=/opt/invigil-study
+EnvironmentFile=/opt/invigil-study/.env
+ExecStart=/usr/bin/node packages/runner/dist/cli.js merkleize --root /opt/invigil-study --data /opt/invigil-study/data
+ExecStart=/usr/bin/bash -lc 'cd packages/anchor && pnpm anchor'
+ExecStart=/usr/bin/bash /opt/invigil-study/deploy/backup.sh

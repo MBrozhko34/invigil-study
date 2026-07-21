@@ -1,0 +1,12 @@
+{
+  "name": "site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "generate": "tsx generate.ts",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "devDependencies": { "tsx": "^4.19.0" }
+}

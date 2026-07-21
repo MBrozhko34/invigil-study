@@ -1,0 +1,33 @@
+# Publish the static leaderboard to GitHub Pages. Manual dispatch until the
+# study produces real verdicts; becomes the weekly publish path at Horizon 2.
+name: pages
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: { name: github-pages }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - name: generate site (placeholder if no verdicts yet)
+        run: |
+          if [ -f analysis/out/verdicts.json ]; then
+            npx tsx site/generate.ts
+          else
+            mkdir -p site/out
+            echo '<!doctype html><title>Invigil</title><p>Study in progress — methodology hash anchored on Base.' > site/out/index.html
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site/out }
+      - uses: actions/deploy-pages@v4

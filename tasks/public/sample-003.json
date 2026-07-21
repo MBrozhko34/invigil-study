@@ -1,0 +1,12 @@
+{
+  "id": "pub-003",
+  "prompt": "def balanced_delims(s: str) -> bool:\n    \"\"\"Return True iff every (, [, { in s is closed by the matching delimiter in the correct order.\n    Non-delimiter characters are ignored.\n    balanced_delims('a(b[c]{d})') -> True ; balanced_delims('([)]') -> False\n    \"\"\"",
+  "entry_point": "balanced_delims",
+  "tests": [
+    "assert balanced_delims('a(b[c]{d})') == True",
+    "assert balanced_delims('([)]') == False",
+    "assert balanced_delims('') == True",
+    "assert balanced_delims('(((') == False",
+    "assert balanced_delims('no delims here') == True"
+  ]
+}

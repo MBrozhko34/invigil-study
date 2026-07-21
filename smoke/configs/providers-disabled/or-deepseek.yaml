@@ -1,0 +1,26 @@
+id: or-deepseek
+displayName: DeepSeek (via OpenRouter, pinned)
+baseUrl: https://openrouter.ai/api/v1
+apiKeyEnv: OPENROUTER_KEY
+modelSlug: deepseek/deepseek-v4-flash
+advertised:
+  precision: unknown
+  contextLength: 1048576
+  pricePerMtokIn: "0.14"
+  pricePerMtokOut: "0.28"
+capabilities:
+  logprobs: true
+  seed: false
+  topK: false
+  completionsEndpoint: false
+rateLimit:
+  requestsPerMinute: 15
+timeoutMs: 180000
+extraBody:
+  provider:
+    order: ["DeepSeek"]
+    allow_fallbacks: false
+  # deepseek-v4-flash is a reasoning model; the smoke compares final text at T=0,
+  # and provider-default reasoning burns the token budget before any answer.
+  reasoning:
+    enabled: false

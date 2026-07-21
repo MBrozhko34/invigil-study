@@ -1,0 +1,15 @@
+# Study identity. MODEL is finalized at Stage B freeze (METHODOLOGY section 2).
+# Primary candidate below reflects the selection criteria: dense (criterion 6),
+# coder-specialist, heavily multi-homed, self-hostable on 1x H100 80GB at BF16.
+# VERIFY multi-homing on OpenRouter at freeze time before locking.
+studyId: invigil-study-001
+model:
+  name: Qwen/Qwen2.5-Coder-32B-Instruct     # primary candidate -- confirm at freeze
+  hfRevision: PIN_COMMIT_HASH_AT_FREEZE      # exact weight artifact, not a name
+methodologyHash: "0x0000000000000000000000000000000000000000000000000000000000000000"  # set at freeze
+seed: 20260714
+scheduleWindowsUtc:                          # >=3 time-of-day windows (METHODOLOGY section 3)
+  - { startHour: 6,  endHour: 10 }
+  - { startHour: 13, endHour: 17 }
+  - { startHour: 20, endHour: 24 }
+budgetGbpCap: 800

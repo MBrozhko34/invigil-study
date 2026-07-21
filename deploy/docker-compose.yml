@@ -1,0 +1,27 @@
+# Study-ops box, container flavour. Recommended alternative: deploy/systemd/
+# with the runner on the host and only the sandbox in Docker.
+#   docker compose -f deploy/docker-compose.yml build
+#   docker compose -f deploy/docker-compose.yml up -d runner-loop
+services:
+  sandbox-image:
+    build: ../packages/sandbox
+    image: invigil-sandbox
+    entrypoint: ["true"]   # build-only; the runner spawns instances itself
+
+  runner-loop:
+    build: { context: .., dockerfile: deploy/Dockerfile.runner }
+    image: invigil-runner
+    env_file: ../.env
+    entrypoint: ["/bin/sh", "-c"]
+    # over-invoking is harmless: the scheduler gates UTC windows and 6h gaps
+    command: ["while true; do node packages/runner/dist/cli.js run --root /app --data /app/data; sleep 900; done"]
+    volumes:
+      - ../configs:/app/configs:ro
+      - ../tasks:/app/tasks:ro
+      - ../prompts:/app/prompts:ro
+      - ../data:/app/data
+      # root-equivalent on this box: acceptable for a single-purpose study VM,
+      # replaced by isolated workers at Horizon 3 (see DEPLOYMENT.md)
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    depends_on: [sandbox-image]

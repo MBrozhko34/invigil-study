@@ -1,0 +1,14 @@
+{
+  "name": "@invigil/verifier-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "invigil-verify": "dist/cli.js" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "scripts": { "build": "tsc -b", "test": "tsx --test test/*.test.ts" },
+  "dependencies": {
+    "@invigil/core": "workspace:*",
+    "commander": "^12.1.0"
+  }
+}

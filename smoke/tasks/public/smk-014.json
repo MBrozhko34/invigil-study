@@ -1,0 +1,11 @@
+{
+  "id": "smk-014",
+  "prompt": "def pairs_summing_to(xs: list[int], t: int) -> int:\n    \"\"\"Count UNORDERED index pairs (i<j) with xs[i]+xs[j] == t.\n    pairs_summing_to([1,2,3,2], 4) -> 2\"\"\"",
+  "entry_point": "pairs_summing_to",
+  "tests": [
+    "assert pairs_summing_to([1,2,3,2],4) == 2",
+    "assert pairs_summing_to([],5) == 0",
+    "assert pairs_summing_to([2,2,2],4) == 3",
+    "assert pairs_summing_to([1],2) == 0"
+  ]
+}

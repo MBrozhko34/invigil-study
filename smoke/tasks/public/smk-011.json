@@ -1,0 +1,11 @@
+{
+  "id": "smk-011",
+  "prompt": "def is_isogram(s: str) -> bool:\n    \"\"\"True iff no letter repeats, ignoring case and non-letters.\n    is_isogram('Lumber-jack!') -> True ; is_isogram('hello') -> False\"\"\"",
+  "entry_point": "is_isogram",
+  "tests": [
+    "assert is_isogram('Lumber-jack!') == True",
+    "assert is_isogram('hello') == False",
+    "assert is_isogram('') == True",
+    "assert is_isogram('Aa') == False"
+  ]
+}

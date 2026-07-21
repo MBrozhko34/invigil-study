@@ -1,0 +1,22 @@
+bench:
+  tasksDirs: ["tasks/public", "tasks/private"]
+  # POWER FINDING (build, 2026-07-14): simulation shows the v0.2 scale
+  # (180 tasks x k=3) has <60% power even against a true 6pp gap. The Stage B
+  # power gate (METHODOLOGY 6.5) will refuse it. Recommended v0.3 scale:
+  # 300 tasks x k=5 (~0.93 power vs true 6pp). Update METHODOLOGY before freeze.
+  k: 3                    # v0.2 value -- expect Stage B to raise to 5
+  minGapHours: 6          # cache-mitigation spacing between reps
+  maxTokens: 768
+  sandboxTimeoutS: 5
+greedy:
+  promptsFile: prompts/greedy.jsonl
+  maxTokens: 256
+logprob:
+  promptsFile: prompts/logprob.jsonl
+context:
+  depthsPct: [25, 50, 75, 95]
+  trialsPerDepth: 20
+  maxContextTokens: 32768   # cost cap: min(advertised, this)
+thresholds:
+  functionalGapPp: 3        # percentage points vs reference (METHODOLOGY section 6.1)
+  alpha: "0.01"

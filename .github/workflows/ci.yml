@@ -1,0 +1,51 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e "analysis[dev]"   # e2e invokes the python analysis
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm -r build
+      # local sandbox mode in CI; production evidence always uses docker
+      # (the mode is stamped into every execution record)
+      - run: SANDBOX_MODE=local pnpm -r --workspace-concurrency=1 run test
+        env: { PYTHONUNBUFFERED: "1" }
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e "analysis[dev]"
+      - run: cd analysis && pytest -q
+
+  secrets-hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: grep history for key-shaped strings before this repo is ever public
+        run: |
+          ! git log -p | grep -E "(sk-[A-Za-z0-9]{20,}|INVIGIL_SIGNING_KEY=[0-9a-fA-F]{64})" || \
+            (echo "::error::possible secret in git history" && exit 1)
+
+  docker-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: sandbox image builds
+        run: docker build -t invigil-sandbox packages/sandbox
+      - name: runner image builds
+        run: docker build -f deploy/Dockerfile.runner -t invigil-runner .
