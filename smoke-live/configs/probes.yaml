@@ -1,0 +1,18 @@
+bench:
+  tasksDirs: ["tasks/public"]
+  k: 2
+  minGapHours: 0                   # smoke only; the real study uses 6h cache spacing
+  maxTokens: 2048                  # reasoning model: leave headroom so answers aren't truncated
+  sandboxTimeoutS: 5
+greedy:
+  promptsFile: prompts/greedy.jsonl
+  maxTokens: 256                   # demo: bounds worst-case per-request latency
+logprob:
+  promptsFile: prompts/logprob.jsonl
+context:
+  depthsPct: [50, 95]
+  trialsPerDepth: 2
+  maxContextTokens: 16384          # cost cap; model advertises 1M, we don't need it for smoke
+thresholds:
+  functionalGapPp: 3
+  alpha: "0.01"

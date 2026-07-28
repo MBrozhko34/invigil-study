@@ -1,0 +1,26 @@
+id: or-deepinfra
+displayName: DeepInfra (via OpenRouter, pinned)
+baseUrl: https://openrouter.ai/api/v1
+apiKeyEnv: OPENROUTER_KEY
+modelSlug: deepseek/deepseek-v4-flash
+advertised:
+  precision: fp4
+  contextLength: 1048576
+  pricePerMtokIn: "0.09"
+  pricePerMtokOut: "0.18"
+capabilities:
+  logprobs: false
+  seed: true
+  topK: true
+  completionsEndpoint: false
+rateLimit:
+  requestsPerMinute: 15
+timeoutMs: 180000
+extraBody:
+  provider:
+    order: ["DeepInfra"]
+    allow_fallbacks: false
+  # deepseek-v4-flash is a reasoning model; the smoke compares final text at T=0,
+  # and provider-default reasoning burns the token budget before any answer.
+  reasoning:
+    enabled: false

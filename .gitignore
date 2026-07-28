@@ -14,5 +14,6 @@ coverage/
 .DS_Store
 *.egg-info/
 data-rep*/
+data-live/
 landing-update-brief-*.md
 smoke-report-*.md

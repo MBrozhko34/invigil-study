@@ -1,0 +1,11 @@
+{
+  "id": "smk-010",
+  "prompt": "def flatten_once(xs: list) -> list:\n    \"\"\"Flatten exactly ONE level of nesting; non-list elements pass through unchanged.\n    flatten_once([1,[2,3],[4,[5]]]) -> [1,2,3,4,[5]]\"\"\"",
+  "entry_point": "flatten_once",
+  "tests": [
+    "assert flatten_once([1,[2,3],[4,[5]]]) == [1,2,3,4,[5]]",
+    "assert flatten_once([]) == []",
+    "assert flatten_once([[1],[2]]) == [1,2]",
+    "assert flatten_once([1,2]) == [1,2]"
+  ]
+}

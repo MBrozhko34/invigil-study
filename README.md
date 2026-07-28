@@ -103,7 +103,14 @@ npx tsx packages/runner/src/cli.ts status --root ./smoke --data ./data
 #    chart, and docs/results/latest.md)
 pnpm report
 
-# 4. Independently verify the evidence was never altered
+# 4. Print the ranked consensus leaderboard in the console
+pnpm rank
+
+# Optional: live re-probe (fresh data dir, real API traffic, ~2 min), then the
+# console report for that new evidence. Demo-scale corpus; expect variation.
+pnpm demo:live
+
+# 5. Independently verify the evidence was never altered
 npx tsx packages/verifier-cli/src/cli.ts ./data
 ```
 

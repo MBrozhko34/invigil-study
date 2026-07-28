@@ -1,0 +1,12 @@
+# LIVE DEMO configuration -- trimmed clone of the smoke root sized so a full
+# greedy re-probe completes in about two minutes on stage (10 prompts x 5
+# providers, sequential). Claims from this data are CROSS-PROVIDER divergence
+# only; sample sizes are demo-scale.
+studyId: invigil-smoke-live
+model:
+  name: deepseek/deepseek-v4-flash
+  hfRevision: SMOKE-NOT-PINNED     # self-hosted reference is a Stage-B task, not smoke
+seed: 20260728
+scheduleWindowsUtc:
+  - { startHour: 0, endHour: 24 }  # demo runs anytime
+budgetGbpCap: 5

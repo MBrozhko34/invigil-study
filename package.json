@@ -9,7 +9,10 @@
     "build": "tsc -b packages/core packages/providers packages/runner packages/sandbox packages/verifier-cli site",
     "test": "pnpm -r --workspace-concurrency=1 run test",
     "test:py": "cd analysis && python3 -m pytest -q",
-    "report": "bash scripts/report.sh"
+    "report": "bash scripts/report.sh",
+    "rank": "bash scripts/rank.sh",
+    "demo": "bash scripts/demo.sh",
+    "demo:live": "bash scripts/demo-live.sh"
   },
   "devDependencies": {
     "@types/node": "^22",

@@ -1,0 +1,11 @@
+{
+  "id": "smk-009",
+  "prompt": "def rotate_right(xs: list, k: int) -> list:\n    \"\"\"Rotate the list right by k positions (k >= 0, may exceed len). Empty list -> [].\n    rotate_right([1,2,3,4], 1) -> [4,1,2,3]\"\"\"",
+  "entry_point": "rotate_right",
+  "tests": [
+    "assert rotate_right([1,2,3,4],1) == [4,1,2,3]",
+    "assert rotate_right([],3) == []",
+    "assert rotate_right([1,2],2) == [1,2]",
+    "assert rotate_right([1,2,3],5) == [2,3,1]"
+  ]
+}

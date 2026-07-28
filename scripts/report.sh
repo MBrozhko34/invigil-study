@@ -29,5 +29,8 @@ fi
 $PY analysis/scripts/generate_report.py \
   --clean data --replicate data-rep2 --defaults data-run1-provider-defaults \
   --providers smoke/configs/providers --out docs/results/latest.md
+$PY analysis/scripts/rank.py \
+  --clean data --replicate data-rep2 --providers smoke/configs/providers \
+  --out docs/results/ranking.md > /dev/null
 
-echo "regenerated: docs/results/latest.md, docs/charts/smoke-divergence.png"
+echo "regenerated: docs/results/latest.md, docs/results/ranking.md, docs/charts/smoke-divergence.png"

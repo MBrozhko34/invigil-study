@@ -1,0 +1,11 @@
+{
+  "id": "smk-006",
+  "prompt": "def interleave(a: list, b: list) -> list:\n    \"\"\"Interleave two lists element by element; append the remainder of the longer one.\n    interleave([1,2,3],['a','b']) -> [1,'a',2,'b',3]\"\"\"",
+  "entry_point": "interleave",
+  "tests": [
+    "assert interleave([1,2,3],['a','b']) == [1,'a',2,'b',3]",
+    "assert interleave([],[1]) == [1]",
+    "assert interleave([1],[]) == [1]",
+    "assert interleave([1,2],[3,4]) == [1,3,2,4]"
+  ]
+}

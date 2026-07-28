@@ -1,0 +1,12 @@
+{
+  "id": "pub-002",
+  "prompt": "def collapse_ranges(nums: list[int]) -> str:\n    \"\"\"Given a sorted list of unique ints, collapse consecutive runs into 'a-b' spans.\n    collapse_ranges([1,2,3,7,9,10]) -> '1-3,7,9-10'\n    Empty input returns ''.\n    \"\"\"",
+  "entry_point": "collapse_ranges",
+  "tests": [
+    "assert collapse_ranges([1,2,3,7,9,10]) == '1-3,7,9-10'",
+    "assert collapse_ranges([]) == ''",
+    "assert collapse_ranges([5]) == '5'",
+    "assert collapse_ranges([1,3,5]) == '1,3,5'",
+    "assert collapse_ranges([1,2]) == '1-2'"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "smk-008",
+  "prompt": "def longest_run(s: str) -> int:\n    \"\"\"Length of the longest run of identical consecutive characters. Empty string -> 0.\n    longest_run('aabbbcc') -> 3\"\"\"",
+  "entry_point": "longest_run",
+  "tests": [
+    "assert longest_run('aabbbcc') == 3",
+    "assert longest_run('') == 0",
+    "assert longest_run('abc') == 1",
+    "assert longest_run('zzzz') == 4"
+  ]
+}
